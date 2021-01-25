@@ -1,6 +1,9 @@
-package verify
+package go_utils
 
-import "strings"
+import (
+	"regexp"
+	"strings"
+)
 
 func IsEmpty(str string, ignoreSpaces bool) bool {
 	if ignoreSpaces {
@@ -11,4 +14,13 @@ func IsEmpty(str string, ignoreSpaces bool) bool {
 
 func IsNotEmpty(str string, ignoreSpaces bool) bool {
 	return !IsEmpty(str, ignoreSpaces)
+}
+
+func IsBlank(str string) bool {
+	result, _ := regexp.MatchString("^\\s*$", str)
+	return result
+}
+
+func IsNotBlank(str string) bool {
+	return !IsBlank(str)
 }
