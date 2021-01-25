@@ -11,7 +11,7 @@ func AmazonEC2MachineID() (uint16, error) {
 	return c, nil
 }
 
-//采用sony的雪花算法生成主键id
+// 采用sony的雪花算法生成主键id
 func GetSonyId() string {
 	var st sonyflake.Settings
 	st.MachineID = AmazonEC2MachineID
