@@ -3,6 +3,7 @@ package conversion
 import (
 	"encoding/json"
 	"strconv"
+	"strings"
 )
 
 /*
@@ -75,4 +76,41 @@ func ArrayToString(array []interface{}, sep string) (result string) {
 		}
 	}
 	return
+}
+
+/**
+下划线转大驼峰
+*/
+func UnderscoreToBigHump(name string) string {
+	name = strings.Replace(name, "_", " ", -1)
+	name = strings.Title(name)
+	return strings.Replace(name, " ", "", -1)
+}
+
+/**
+下划线转小驼峰
+*/
+func UnderscoreToSmallHump(name string) string {
+	if len(name) < 2 {
+		return name
+	}
+	result := UnderscoreToBigHump(name)
+	index := result[:1]
+	return strings.ToLower(index) + result[1:]
+}
+
+/**
+驼峰转下划线
+*/
+func HumpToUnderscore(name string) string {
+	newName := ""
+	for index, item := range name {
+		if index > 0 &&
+			(item >= 'A' && item <= 'Z') &&
+			(index < len(name)) {
+			newName += "_"
+		}
+		newName += name[index : index+1]
+	}
+	return strings.ToLower(newName)
 }
