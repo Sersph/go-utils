@@ -4,6 +4,11 @@ import (
 	"encoding/json"
 	"strconv"
 	"strings"
+	"time"
+)
+
+const (
+	DATE_TIME_FORMAT_STRING string = "2006-01-02 15:04:05"
 )
 
 /*
@@ -55,6 +60,9 @@ func ToString(value interface{}) string {
 		return strconv.FormatUint(it, 10)
 	case string:
 		return value.(string)
+	case time.Time:
+		it := value.(time.Time)
+		return it.Format(DATE_TIME_FORMAT_STRING)
 	case []byte:
 		return string(value.([]byte))
 	default:
