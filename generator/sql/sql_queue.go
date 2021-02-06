@@ -10,21 +10,21 @@ func NewQueue() *Queue {
 	return &q
 }
 
-func (q *Queue) Enqueue(item string) *Queue {
-	q.items = append(q.items, item)
-	return q
+func (from *Queue) Enqueue(item string) *Queue {
+	from.items = append(from.items, item)
+	return from
 }
 
-func (q *Queue) Dequeue() string {
-	item := q.items[0]
-	q.items = q.items[1:len(q.items)]
+func (from *Queue) Dequeue() string {
+	item := from.items[0]
+	from.items = from.items[1:len(from.items)]
 	return item
 }
 
-func (q *Queue) IsEmpty() bool {
-	return len(q.items) == 0
+func (from *Queue) IsEmpty() bool {
+	return len(from.items) == 0
 }
 
-func (q *Queue) Size() int {
-	return len(q.items)
+func (from *Queue) Size() int {
+	return len(from.items)
 }
