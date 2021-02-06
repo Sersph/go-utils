@@ -26,7 +26,7 @@ func NewSelectBuilder() *SelectBuilder {
 }
 
 func (sb *SelectBuilder) Eq(column string, val interface{}) *SelectBuilder {
-	where := ColumnProcess(column) + EQ + conversion.ToString(val)
+	where := ConstituteWherePhrase(column, EQ, conversion.ToString(val))
 	sb.WherePhrase.Enqueue(where)
 	return sb
 }
