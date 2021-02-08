@@ -1,5 +1,4 @@
-<img style="text-align: center" src="./logo.png"/>
-
+![images text](./logo.png)
 
 # go-utils
 
