@@ -1,7 +1,7 @@
 <div style="display: flex; justify-content: center; margin-top: 20px; margin-bottom: 50px">
     <img alt="GO Utils" 
         style="width: 150px;" 
-        src="http://competition-resources.li-winily.com/go-utilsgoutilslogo.png">
+        src="./logo.png">
     <span style="font-size: 30px; padding-top: 100px; margin-left: 30px">Go-Utils</span>
 </div>
 
