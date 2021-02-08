@@ -34,6 +34,10 @@ func (from *From) ToString() string {
 	return fromSql
 }
 
+/**
+TODO 表名操作，join等，考虑多表操作，as 别名问题
+*/
+
 func (from *From) IsNull() bool {
 	return from.from.Size() <= 0
 }

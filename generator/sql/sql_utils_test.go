@@ -19,6 +19,6 @@ func TestIdUtils(t *testing.T) {
 	sqlBuilder.Where.IsEq(func(value interface{}) bool {
 		return value != nil
 	}, "Sex", nil)
-
+	sqlBuilder.Where.SQL("Age > 18")
 	fmt.Println(sqlBuilder.ToSQl())
 }
