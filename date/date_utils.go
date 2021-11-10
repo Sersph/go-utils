@@ -20,10 +20,10 @@ func GetYTD() string {
 	获取时间
 	参数：years 年、 months 月、 days 天
 	列： 0为当时， 整数表示往后， 负数表示往前
-	返回：2021-02-03 00:00:00
+	返回：2021-02-03
 */
 func GetTime(years, months, days int) string {
-	return time.Now().AddDate(years, months, days).Format("2006-01-02 00:00:00")
+	return time.Now().AddDate(years, months, days).Format("2006-01-02")
 }
 
 //string 2006-10-02 10:00:00 转time

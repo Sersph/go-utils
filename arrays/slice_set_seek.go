@@ -2,25 +2,21 @@ package arrays
 
 //切片求集：交集、差集、并集
 
-//交集
+//str 公共部分
 func BeMixed(slice, slice2 []string) []string {
 	if len(slice) <= 0 || len(slice) <= 0 {
 		return nil
 	}
 
+	sliceMap := strToMap(slice)
+
+	slice2Map := strToMap(slice2)
+
 	newSlice := make([]string, 0)
-	for _, value := range slice {
-		exits := false
-		for _, value2 := range slice2 {
-			if value == value2 {
-				exits = true
-				break
-			}
-		}
-		if exits {
-			newSlice = append(newSlice, value)
-		}
+	for key := range sliceMap {
+		newSlice = append(newSlice, slice2Map[key])
 	}
+
 	return Aggregate(newSlice)
 }
 
@@ -45,23 +41,26 @@ func DifferenceSet(slice []string) []string {
 	return newSlice
 }
 
-//并集 去重
+// str 去重
 func Aggregate(slice []string) []string {
 	if len(slice) <= 1 {
 		return slice
 	}
 
+	exitMap := strToMap(slice)
+
 	newSlice := make([]string, 0)
-	for _, value := range slice {
-		exits := true
-		for _, newValue := range newSlice {
-			if value == newValue {
-				exits = false
-			}
-		}
-		if exits {
-			newSlice = append(newSlice, value)
-		}
+	for str := range exitMap {
+		newSlice = append(newSlice, str)
 	}
+
 	return newSlice
+}
+
+func strToMap(slice []string) map[string]string {
+	exitMap := make(map[string]string)
+	for _, v := range slice {
+		exitMap[v] = v
+	}
+	return exitMap
 }
