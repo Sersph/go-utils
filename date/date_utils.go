@@ -23,7 +23,7 @@ func GetYTD() string {
 	列： 0为当时， 整数表示往后， 负数表示往前
 	返回：2021-02-03
 */
-func GetTime(years, months, days int) string {
+func GetAddTime(years, months, days int) string {
 	return time.Now().AddDate(years, months, days).Format(common.Date)
 }
 
